@@ -1,0 +1,52 @@
+html {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  min-height: 100%;
+}
+.h1_header{
+  color: rgba(17, 188, 11, 0.761);
+}
+.img_forum{
+  width: 20px;
+
+}
+i{
+  color: rgba(17, 188, 11, 0.761);
+}
+body {
+  background: none;
+}
+.semiBG {
+  background: rgba(17, 188, 11, 0.761);
+  border-radius: 5px;
+}
+.headingFont {
+  font-family: 'Muli';
+}
+.bodyFont {
+  font-family: 'Lato';
+}
+.watchNow {
+  font-size: 1.5rem;
+  color: #ffff;
+}
+a {
+  color: #ffff;
+  text-decoration: none;
+  -webkit-transition: color 500ms ease;
+  -moz-transition: color 500ms ease;
+  -ms-transition: color 500ms ease;
+  -o-transition: color 500ms ease;
+  transition: color 500ms ease;
+}
+a:hover {
+  text-decoration: none;
+  color: #018989;
+}
+a.watchNow:hover {
+  color: #018989;
+}
+.border-black {
+  border-color: black !important;
+}
