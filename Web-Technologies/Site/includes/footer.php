@@ -9,7 +9,7 @@
                 <div class="col-sm-2">
                     <h5>Get started</h5>
                     <ul>
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="homepage.php">Home</a></li>
                         <li><a href="team.php">Team</a></li>
                         <li><a href="forum.php">Forum</a></li>
                         <li><a href="hub.php">Hub</a></li>
