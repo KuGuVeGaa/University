@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/exchange"
+    android:padding="16dp"
+    android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/ivBack"
+        android:backgroundTint="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:onClick="backCreate"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="70dp">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="#fff"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@id/tc"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:hint="T.C Number"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/register_edittext_background"
+                android:drawableLeft="@drawable/ic_baseline_article_24"
+                android:elevation="8dp"
+                android:padding="15dp"
+                android:inputType="textPersonName"
+                android:paddingRight="15dp"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/register_edittext_background"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+                android:elevation="8dp"
+                android:padding="15dp"
+                android:paddingRight="15dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:gravity="right|center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:text="Enter"
+                    android:textSize="28sp"
+                    android:textColor="#fff"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/create"
+                    android:onClick="enter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:background="@drawable/register_button" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="Or create account using system "/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+                <ImageButton
+                    android:id="@+id/google"
+                    android:layout_width="@dimen/path_bin_size"
+                    android:layout_height="@dimen/path_bin_size"
+                    android:background="@drawable/google" />
+                <ImageButton
+                    android:id="@+id/github"
+                    android:layout_width="@dimen/path_bin_size"
+                    android:layout_height="@dimen/path_bin_size"
+                    android:background="@drawable/github"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+                <ImageButton
+                    android:id="@+id/apple"
+                    android:layout_width="@dimen/path_bin_size"
+                    android:layout_height="@dimen/path_bin_size"
+                    android:background="@drawable/apple"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
