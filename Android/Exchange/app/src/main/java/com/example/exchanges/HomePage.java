@@ -20,9 +20,9 @@ import okhttp3.Response;
 
 public class HomePage extends AppCompatActivity {
 
-    private static TextView text;
+    private static TextView textName,textPrice,textBuy;
     private static OkHttpClient client;
-    private static String url,myresponse,title;
+    private static String url,myresponse,name,price;
     private static Request request;
     private static RequestBody requestBody;
     private static Document document;
@@ -32,13 +32,14 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        Connection();
+        Connection("h_b_ad_id_AEFES","h_td_fiyat_id_AEFES");
     }
-    public void Connection() {
+    public void Connection(String idName,String idPrice) {
         client = new OkHttpClient();
-        url = "https://bigpara.hurriyet.com.tr/borsa/canli-borsa/";
+        url = "https://uzmanpara.milliyet.com.tr/canli-borsa/";
         request = new Request.Builder().url(url).addHeader("accept","application/json").build();
-        text = (TextView) findViewById(R.id.textView);
+        textName =  findViewById(R.id.textName);
+        textPrice =  findViewById(R.id.textPrice);
 
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -50,13 +51,15 @@ public class HomePage extends AppCompatActivity {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if (response.isSuccessful()){
                     myresponse = response.body().string();
-                    document = Jsoup.connect("https://bigpara.hurriyet.com.tr/borsa/canli-borsa/").get();
-                    title = String.valueOf(document.getElementById("h_td_alis_id_AEFES").text());
+                    document = Jsoup.connect("https://uzmanpara.milliyet.com.tr/canli-borsa/").get();
+                    name = String.valueOf(document.getElementById(idName).text());
+                    price = String.valueOf(document.getElementById(idPrice).text());
 
                     HomePage.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            text.setText(title);
+                            textName.setText(name);
+                            textPrice.setText(price);
                         }
                     });
                 }
