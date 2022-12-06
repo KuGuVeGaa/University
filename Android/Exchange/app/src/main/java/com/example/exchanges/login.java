@@ -35,7 +35,7 @@ public class login extends AppCompatActivity {
             if (!TextUtils.isEmpty(passWord)){
                 if (userName.equals(trueUsername)){
                     if (passWord.equals(truePassword)){
-                        Intent intent = new Intent(login.this,MainActivity.class);
+                        Intent intent = new Intent(login.this,HomePage.class);
                         intent.putExtra("Username",userName);
                         startActivity(intent);
                     }
