@@ -30,7 +30,7 @@
                 android:layout_margin="32dp"
                 android:gravity="center"
                 android:text="Create Account"
-                android:textColor="#fff"
+                android:textColor="#03E8C6"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -38,6 +38,7 @@
                 android:id="@+id/fullName"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
+                android:textSize="15sp"
                 android:hint="Full Name"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="20dp"
@@ -46,13 +47,14 @@
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:elevation="8dp"
                 android:padding="15dp"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|textCapSentences|textAutoCorrect"
                 android:paddingRight="15dp"/>
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
+                android:textSize="15sp"
                 android:inputType="textPassword"
                 android:hint="Password"
                 android:layout_marginLeft="2dp"
@@ -69,8 +71,9 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
+                android:textSize="15sp"
                 android:hint="E-mail"
-                android:inputType="textEmailAddress"
+                android:inputType="textEmailAddress|textCapSentences|textAutoCorrect"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="2dp"
@@ -84,8 +87,9 @@
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:inputType="phone"
+                android:inputType="phone|textCapSentences|textAutoCorrect"
                 android:hint="Phone Number"
+                android:textSize="15sp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="2dp"
@@ -100,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:inputType="number"
+                android:textSize="15sp"
                 android:hint="T.C Number"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="20dp"
@@ -122,21 +127,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
                     android:text="Create"
+                    android:clickable="true"
+                    android:onClick="create"
                     android:textSize="28sp"
-                    android:textColor="#fff"
+                    android:textColor="#03E8C6"
                     android:textStyle="bold" />
 
-                <ImageButton
-                    android:id="@+id/create"
-                    android:layout_width="wrap_content"
-                    android:layout_height="44dp"
-                    android:background="@drawable/register_button" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textColor="#fff"
+                android:textColor="#03E8C6"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
                 android:text="Or create account using system "/>

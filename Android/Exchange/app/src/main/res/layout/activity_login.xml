@@ -32,7 +32,7 @@
                 android:layout_margin="32dp"
                 android:gravity="center"
                 android:text="Login"
-                android:textColor="#fff"
+                android:textColor="#03E8C6"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -40,6 +40,7 @@
                 android:id="@id/tc"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
+                android:textSize="15sp"
                 android:hint="T.C Number"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="20dp"
@@ -55,6 +56,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
+                android:textSize="15sp"
                 android:inputType="textPassword"
                 android:hint="Password"
                 android:layout_marginLeft="2dp"
@@ -80,22 +82,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
                     android:text="Enter"
-                    android:textSize="28sp"
-                    android:textColor="#fff"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/create"
+                    android:clickable="true"
                     android:onClick="enter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="44dp"
-                    android:background="@drawable/register_button" />
+                    android:textSize="28sp"
+                    android:textColor="#03E8C6"
+                    android:textStyle="bold" />
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textColor="#fff"
+                android:textColor="#03E8C6"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
                 android:text="Or create account using system "/>

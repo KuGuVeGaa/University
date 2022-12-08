@@ -10,6 +10,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.exchanges.databinding.ActivityLoginBinding;
+
 public class login extends AppCompatActivity {
 
     private EditText tc,password;
@@ -17,9 +19,13 @@ public class login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
+        var binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        var viewRoot = binding.getRoot();
+
         tc = (EditText) findViewById(R.id.tc);
         password = (EditText) findViewById(R.id.password);
+        setContentView(viewRoot);
     }
     public void backCreate(View v){
         Intent intent = new Intent(login.this,MainActivity.class);
@@ -30,6 +36,8 @@ public class login extends AppCompatActivity {
         passWord = password.getText().toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
         AlertDialog alertDialog;
+        var binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        var viewRoot = binding.getRoot();
 
         if (!TextUtils.isEmpty(userName)){
             if (!TextUtils.isEmpty(passWord)){
@@ -40,45 +48,11 @@ public class login extends AppCompatActivity {
                         startActivity(intent);
                     }
                     else {
-                        builder.setTitle("Password Wrong !");
-                        builder.setCancelable(false);
-                        builder.setIcon(R.mipmap.ic_launcher_round);
-                        builder.setPositiveButton("Try", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(login.this,login.class);
-                                startActivity(intent);
-                            }
-                        });
-                        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                        alertDialog = builder.create();
-                        alertDialog.show();
+                        binding.password.setError("Enter the valid password");
                     }
                 }
                 else {
-                    builder.setTitle("Username Wrong !");
-                    builder.setCancelable(false);
-                    builder.setIcon(R.mipmap.ic_launcher_round);
-                    builder.setPositiveButton("Try", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(login.this,login.class);
-                            startActivity(intent);
-                        }
-                    });
-                    builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    alertDialog = builder.create();
-                    alertDialog.show();
+                    binding.tc.setError("Enter the valid T.C");
                 }
             }
             else {
