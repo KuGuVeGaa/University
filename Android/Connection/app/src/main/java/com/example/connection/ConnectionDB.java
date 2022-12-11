@@ -17,11 +17,7 @@ import java.sql.Statement;
 
 public class ConnectionDB extends AppCompatActivity {
 
-    private static String url,query;
-    private static Connection connection;
-    private static TextView _status;
-    private static Statement stmt;
-    private static ResultSet rs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,33 +25,41 @@ public class ConnectionDB extends AppCompatActivity {
         var binding = ActivityConnectionDbBinding.inflate(getLayoutInflater());
         var viewRoot = binding.getRoot();
 
-        ConnectionDB();
+        ConnectionD();
         setContentView(viewRoot);
     }
-    @SuppressLint("NotConstructor")
-    public void ConnectionDB(){
+
+    public void ConnectionD(){
         var binding = ActivityConnectionDbBinding.inflate(getLayoutInflater());
-
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            connection =(Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/AndroidDB","root","123456");
-            stmt=(Statement) connection.createStatement();
-            rs=stmt.executeQuery("select * from users");
-            while (rs.next()){
-                binding.status.setText(rs.getString("UserId")+rs.getString("TC")+rs.getString("Password"));
-            }
-            binding.status.setText(rs.getInt(0));
+        // JDBC sürücüsünü yükle
+        Class.forName("com.mysql.jdbc.Driver");
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
+        // Bağlantı dizesini oluştur
+        String url = "jdbc:mysql://127.0.0.1:3306/AndroidDB";
+
+        // Veritabanına bağlanmak için Connection sınıfını kullan
+        Connection conn = DriverManager.getConnection(url, "root", "123456");
+
+        // SQL sorgusunu oluşturun ve veritabanında çalıştır
+        String sql = "SELECT * FROM users";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        // Sonuçları yazdır
+        while (rs.next()) {
+            binding.status.setText(rs.getInt("id") +  "\t" +
+                    rs.getString("isim") + "\t" +
+                    rs.getString("soyisim"));
         }
-
-
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+
+
+
+
+
+
+}
 }
