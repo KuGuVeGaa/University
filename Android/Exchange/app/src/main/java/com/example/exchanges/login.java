@@ -7,15 +7,22 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.exchanges.databinding.ActivityLoginBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
 
     private EditText tc,password;
     private  String userName,passWord,trueUsername="Yavuz",truePassword="1234";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,32 +35,51 @@ public class login extends AppCompatActivity {
         setContentView(viewRoot);
     }
     public void backCreate(View v){
-        Intent intent = new Intent(login.this,MainActivity.class);
+        Intent intent = new Intent(login.this,Register.class);
         startActivity(intent);
     }
     public void enter(View v){
         userName = tc.getText().toString();
         passWord = password.getText().toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Personals");
         AlertDialog alertDialog;
         var binding = ActivityLoginBinding.inflate(getLayoutInflater());
         var viewRoot = binding.getRoot();
 
         if (!TextUtils.isEmpty(userName)){
             if (!TextUtils.isEmpty(passWord)){
-                if (userName.equals(trueUsername)){
-                    if (passWord.equals(truePassword)){
-                        Intent intent = new Intent(login.this,HomePage.class);
-                        intent.putExtra("Username",userName);
-                        startActivity(intent);
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot i : snapshot.getChildren()) {
+                            var tc_ = i.child("Email");
+                            var password_ = i.child("Password");
+                            if (userName.equals(tc_)){
+                                if (passWord.equals(password_)){
+                                    if (binding.login.isEnabled()){
+                                        Intent intent = new Intent(login.this,HomePage.class);
+                                        intent.putExtra("Username",userName);
+                                        startActivity(intent);
+                                    }
+                                }
+                                else {
+                                    binding.password.setError("Enter the valid password");
+                                }
+                            }
+                            else {
+                                binding.tc.setError("Enter the valid T.C");
+                            }
+                        }
                     }
-                    else {
-                        binding.password.setError("Enter the valid password");
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
                     }
-                }
-                else {
-                    binding.tc.setError("Enter the valid T.C");
-                }
+                });
+
             }
             else {
                 builder.setTitle("Password Must Not Be Empty !");

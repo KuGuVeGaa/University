@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.example.exchanges.databinding.ActivityHomePageBinding;
@@ -23,7 +24,7 @@ import okhttp3.Response;
 
 public class HomePage extends AppCompatActivity{
 
-    private static TextView textName,textPrice,findName,findPrice;
+    private static TextView scroll;
     private static OkHttpClient client;
     private static String url,myresponse,name,price;
     private static Request request;
@@ -37,12 +38,21 @@ public class HomePage extends AppCompatActivity{
         var binding = ActivityHomePageBinding .inflate(getLayoutInflater());
         var viewRoot = binding.getRoot();
 
-        Connection(binding.textName,binding.textPrice,"h_b_ad_id_AEFES","h_td_fiyat_id_AEFES");
-        Connection(binding.textName1,binding.textPrice1,"h_b_ad_id_AGHOL","h_td_fiyat_id_AGHOL");
+        webScrap(binding.textName,binding.textPrice,"h_b_ad_id_AEFES","h_td_fiyat_id_AEFES");
+        webScrap(binding.textName1,binding.textPrice1,"h_b_ad_id_AGHOL","h_td_fiyat_id_AGHOL");
+        scrollText();
 
         setContentView(viewRoot);
     }
-    public void Connection(TextView _findName, TextView _findPrice, String idName, String idPrice) {
+    public void scrollText(){
+        var binding = ActivityHomePageBinding .inflate(getLayoutInflater());
+
+        scroll =(TextView) findViewById(R.id.scrollingText);
+        scroll.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        scroll.setSelected(true);
+
+    }
+    public void webScrap(TextView _findName, TextView _findPrice, String idName, String idPrice) {
         client = new OkHttpClient();
         url = "https://uzmanpara.milliyet.com.tr/canli-borsa/";
         request = new Request.Builder().url(url).addHeader("accept","application/json").build();
@@ -60,6 +70,7 @@ public class HomePage extends AppCompatActivity{
                     document = Jsoup.connect("https://uzmanpara.milliyet.com.tr/canli-borsa/").get();
                     name = document.getElementById(idName).text();
                     price = document.getElementById(idPrice).text();
+
 
                     HomePage.this.runOnUiThread(new Runnable() {
                         @Override

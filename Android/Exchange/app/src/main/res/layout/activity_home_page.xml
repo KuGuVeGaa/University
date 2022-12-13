@@ -6,10 +6,22 @@
     android:orientation="vertical"
     tools:viewBindingIgnore="false">
 
+    <TextView
+        android:id="@+id/scrollingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        android:text="Dolar Euro Gibi Şeylerin Geleceği Yer"/>
+
     <LinearLayout
         android:id="@+id/first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/scrollingText"
         android:weightSum="2">
         <TextView
             android:layout_width="wrap_content"

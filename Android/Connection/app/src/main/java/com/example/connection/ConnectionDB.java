@@ -25,18 +25,19 @@ public class ConnectionDB extends AppCompatActivity {
         var binding = ActivityConnectionDbBinding.inflate(getLayoutInflater());
         var viewRoot = binding.getRoot();
 
-        ConnectionD();
+        ConnectionDB();
         setContentView(viewRoot);
     }
 
-    public void ConnectionD(){
+    @SuppressLint("SetTextI18n")
+    public void ConnectionDB(){
         var binding = ActivityConnectionDbBinding.inflate(getLayoutInflater());
         try {
         // JDBC sürücüsünü yükle
         Class.forName("com.mysql.jdbc.Driver");
 
         // Bağlantı dizesini oluştur
-        String url = "jdbc:mysql://127.0.0.1:3306/AndroidDB";
+        String url = "jdbc:mysql://127.0.0.1:3306/androiddb";
 
         // Veritabanına bağlanmak için Connection sınıfını kullan
         Connection conn = DriverManager.getConnection(url, "root", "123456");
@@ -48,9 +49,9 @@ public class ConnectionDB extends AppCompatActivity {
 
         // Sonuçları yazdır
         while (rs.next()) {
-            binding.status.setText(rs.getInt("id") +  "\t" +
-                    rs.getString("isim") + "\t" +
-                    rs.getString("soyisim"));
+            binding.status.setText(rs.getInt("UserId") +  "\t" +
+                    rs.getString("TC") + "\t" +
+                    rs.getString("Password"));
         }
     } catch (Exception e) {
         e.printStackTrace();
