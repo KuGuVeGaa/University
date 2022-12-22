@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class login extends AppCompatActivity {
 
     private EditText tc,password;
-    private  String userName,passWord,trueUsername="Yavuz",truePassword="1234";
+    private  String tc_,passWord,trueUsername="Yavuz",truePassword="1234";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class login extends AppCompatActivity {
         startActivity(intent);
     }
     public void enter(View v){
-        userName = tc.getText().toString();
+        tc_ = tc.getText().toString();
         passWord = password.getText().toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -48,19 +48,19 @@ public class login extends AppCompatActivity {
         var binding = ActivityLoginBinding.inflate(getLayoutInflater());
         var viewRoot = binding.getRoot();
 
-        if (!TextUtils.isEmpty(userName)){
+        if (!TextUtils.isEmpty(tc_)){
             if (!TextUtils.isEmpty(passWord)){
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot i : snapshot.getChildren()) {
-                            var tc_ = i.child("Email");
-                            var password_ = i.child("Password");
-                            if (userName.equals(tc_)){
-                                if (passWord.equals(password_)){
+                            var tc__ = i.child("Email");
+                            var password__ = i.child("Password");
+                            if (tc__.getValue().equals(tc_)){
+                                if (password__.getValue().equals(passWord)){
                                     if (binding.login.isEnabled()){
                                         Intent intent = new Intent(login.this,HomePage.class);
-                                        intent.putExtra("Username",userName);
+                                        intent.putExtra("Username",tc_);
                                         startActivity(intent);
                                     }
                                 }
