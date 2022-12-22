@@ -1,122 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
     android:orientation="vertical"
-    tools:viewBindingIgnore="false">
 
-    <TextView
-        android:id="@+id/scrollingText"
+    tools:context=".HomePage">
+
+
+    <Spinner android:id="@+id/spinnerid"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:singleLine="true"
-        android:scrollHorizontally="true"
-        android:text="Dolar Euro Gibi Şeylerin Geleceği Yer"/>
 
-    <LinearLayout
-        android:id="@+id/first"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scrollingText"
-        android:weightSum="2">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Share"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_height="50dp"
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_below="@+id/first">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:id="@+id/second"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@id/first"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/textName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hello"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    />
-
-                <TextView
-                    android:id="@+id/textPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hello"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/third"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@id/second"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/textName1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hello"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    />
-                <TextView
-                    android:id="@+id/textPrice1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hello"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    />
-            </LinearLayout>
-
-
-        </LinearLayout>
-    </ScrollView>
+        />
 
 
 
-
-
-
-
-</RelativeLayout>
+</LinearLayout>

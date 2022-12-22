@@ -34,7 +34,7 @@ public class Connections extends HomePage {
     private static Request request;
     private static Document document;
 
-    public void ConnectionDB() {
+   /* public void ConnectionDB() {
         var binding = ActivityHomePageBinding.inflate(getLayoutInflater());
         try {
             // JDBC sürücüsünü yükle
@@ -62,5 +62,5 @@ public class Connections extends HomePage {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
     }
