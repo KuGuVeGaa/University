@@ -53,7 +53,6 @@ public class customadapter extends ArrayAdapter<String>
 
 
     @Override
-
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
 
