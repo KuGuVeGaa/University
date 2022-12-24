@@ -55,25 +55,6 @@
                 android:padding="15dp"
                 android:paddingRight="15dp"
                 android:textSize="15sp" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                app:startIconDrawable="@drawable/ic_baseline_article_24"
-                android:layout_height="wrap_content"
-                android:hint="Enter The T.C Number">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tc"
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="2dp"
-                    android:background="@drawable/register_edittext_background"
-                    android:elevation="8dp"
-                    android:ems="15"
-                    android:inputType="number"
-                    android:textSize="15sp" />
-            </com.google.android.material.textfield.TextInputLayout>
 
 
             <EditText
@@ -92,27 +73,7 @@
                 android:elevation="8dp"
                 android:padding="15dp"
                 android:paddingRight="15dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_baseline_lock_24"
-                android:hint="Enter The Password"
-                app:passwordToggleEnabled="true">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="2dp"
-                    android:background="@drawable/register_edittext_background"
-                    android:elevation="8dp"
-                    android:ems="15"
-                    android:inputType="textPassword"
-                    android:textSize="15sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-            
 
             <LinearLayout
                 android:layout_width="match_parent"
